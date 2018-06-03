@@ -1,10 +1,10 @@
 {
-  "name": "latex-completions",
-  "main": "./lib/latex-completions",
-  "version": "0.3.3",
-  "description": "Easy input for unicode characters",
+  "name": "texdex",
+  "main": "./lib/texdex",
+  "version": "0.1.0",
+  "description": "Latex index: autocomplete latex symbols",
   "keywords": [],
-  "repository": "https://github.com/JunoLab/atom-latex-completions",
+  "repository": "https://github.com/LinxiFan/texdex",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"

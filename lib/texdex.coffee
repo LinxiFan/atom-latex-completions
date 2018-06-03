@@ -15,21 +15,23 @@ module.exports =
       order: 2
     selector:
       type: 'string'
-      default: '.source, .text'
+      default: '.tex, .latex'
       description: 'Enable completions under these scopes:'
       order: 3
     disableForSelector:
       type: 'string'
-      default: '.tex, .latex'
+      default: '.nothing'
       description: 'Disable completions under these scopes:'
       order: 4
 
   activate: ->
-    atom.config.get("latex-completions.enableDefaultCompletions") && provider.load()
+    console.log "I am activated"
+
+    atom.config.get("texdex.enableDefaultCompletions") && provider.load()
 
     @subscriptions = new CompositeDisposable
 
-    @subscriptions.add atom.config.observe 'latex-completions.customAliases', (path) =>
+    @subscriptions.add atom.config.observe 'texdex.customAliases', (path) =>
       for path in path.split(',')
         provider.load(path)
 

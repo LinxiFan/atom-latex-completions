@@ -15,8 +15,9 @@ module.exports =
   texPattern: /\\(.*)$/
 
   load: (p) ->
-    @scopeSelector = atom.config.get("latex-completions.selector")
-    @disableForScopeSelector = atom.config.get("latex-completions.disableForSelector")
+    console.log "loading texdex"
+    @scopeSelector = atom.config.get("texdex.selector")
+    @disableForScopeSelector = atom.config.get("texdex.disableForSelector")
     return if p == ''
     p ?= path.resolve(__dirname, '..', 'completions', 'completions.json')
     fs.readFile p, (error, content) =>
@@ -33,4 +34,5 @@ module.exports =
   onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
     word = suggestion.text
     editor.selectLeft(word.length + 1)
-    editor.insertText(@completions[word])
+    # editor.insertText(@completions[word])
+    editor.insertText('\\' + word)
